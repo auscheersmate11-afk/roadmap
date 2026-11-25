@@ -154,13 +154,33 @@ details.ls>summary::-webkit-details-marker{display:none}
 details.ls>summary svg{width:14px;height:14px;transition:transform .2s}
 details.ls[open]>summary svg{transform:rotate(90deg)}
 .grp{font-size:12px;font-weight:700;color:var(--ink2);margin:12px 0 4px}
-.les label{display:flex;align-items:flex-start;gap:10px;padding:8px 4px;border-top:1px solid var(--line);cursor:pointer;min-height:40px}
-.les li:first-child label{border-top:0}
+.les li{display:flex;align-items:flex-start;gap:10px;padding:8px 4px;border-top:1px solid var(--line);min-height:40px}
+.les li:first-child{border-top:0}
+.les li>svg.i,.allc li>svg.i{width:14px;height:14px;color:var(--mist);margin-top:4px}
 .les input{appearance:none;-webkit-appearance:none;flex:none;width:22px;height:22px;margin:1px 0 0;border-radius:6px;border:2px solid var(--mist);background:var(--paper);display:grid;place-items:center;cursor:pointer}
 .les input:checked{background:var(--sky);border-color:var(--sky)}
 .les input:checked::after{content:"";width:10px;height:5px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:translateY(-1px) rotate(-45deg)}
-.les .ti{flex:1;min-width:0;font-size:14px;overflow-wrap:anywhere}
+.les .ti{flex:1;min-width:0;font-size:14px;overflow-wrap:anywhere;color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.les .ti:hover,.hl:hover{color:var(--sky);text-decoration-color:var(--sky)}
 .les input:checked+.ti{color:var(--ink2);text-decoration:line-through;text-decoration-color:var(--mist)}
+.les .new{flex:none;font-family:var(--f-num);font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--onGold);background:var(--gold);border-radius:var(--r-pill);padding:0 6px;line-height:18px;margin-top:2px}
+.hl{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;overflow-wrap:anywhere;min-width:0}
+.side details summary .chip{font-size:10px;padding:0 6px;line-height:18px}
+/* 全レッスン */
+.allsec{padding-block:8px 24px}
+.allc{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start}
+.crs{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:0 14px}
+.crs>summary{list-style:none;display:flex;align-items:center;gap:8px;min-height:48px;font-weight:700;font-size:14px;color:var(--navy);cursor:pointer}
+.crs>summary::-webkit-details-marker{display:none}
+.crs>summary svg{width:14px;height:14px;color:var(--ink2);transition:transform .2s}
+.crs[open]>summary svg{transform:rotate(90deg)}
+.crs>summary .c{margin-left:auto;font-size:12px;color:var(--ink2);font-weight:600}
+.crs ol{counter-reset:n;padding-bottom:4px}
+.crs li{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:7px 0;border-top:1px solid var(--line)}
+.crs li::before{counter-increment:n;content:counter(n);font-family:var(--f-num);font-size:11px;color:var(--ink2);min-width:18px;padding-top:2px}
+.crs li .hl{flex:1}
+.crs .top-l{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;color:var(--sky);text-decoration:none;padding:6px 0 12px}
+.crs .top-l svg{width:12px;height:12px}
 .les .du{font-size:12px;color:var(--ink2);font-family:var(--f-num);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:2px}
 .all{margin-top:8px;border:1px solid var(--line);background:transparent;border-radius:var(--r-pill);padding:6px 14px;font-size:12px;font-weight:700;color:var(--ink2)}
 
@@ -185,7 +205,7 @@ details.ls[open]>summary svg{transform:rotate(90deg)}
 .side details summary .c{margin-left:auto;font-size:12px;color:var(--ink2);font-family:var(--f-num)}
 .side details summary svg{width:14px;height:14px;color:var(--ink2);transition:transform .2s}
 .side details[open] summary svg{transform:rotate(90deg)}
-.side details li{display:flex;gap:8px;justify-content:space-between;font-size:13px;padding:6px 0 6px 22px;color:var(--ink)}
+.side details li{display:flex;gap:8px;justify-content:space-between;align-items:flex-start;font-size:13px;padding:6px 0 6px 22px;color:var(--ink)}
 .side details li span:last-child{font-size:12px;color:var(--ink2);font-family:var(--f-num);white-space:nowrap}
 .side details ul{padding-bottom:8px}
 
@@ -246,7 +266,7 @@ details.ls[open]>summary svg{transform:rotate(90deg)}
 <div class="wrap cols">
   <main>
     <h2 class="sec-h">ロードマップ</h2>
-    <p class="sec-p">上から順番に進みます。各ステージの「ここまで来ると」が、終えたときのあなたの状態です。</p>
+    <p class="sec-p">上から順番に進みます。各ステージの「ここまで来ると」が、終えたときのあなたの状態です。レッスン名を押すと会員サイトのそのレッスンが開き、左の四角で完了をチェックできます。</p>
     <ol class="road" id="road"></ol>
     <div class="fin"><span class="node"><svg class="i" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/></svg></span><p>ゴール<small>全ステージ達成。学んだことを使って、世界に届けるだけ。</small></p></div>
   </main>
@@ -262,49 +282,87 @@ details.ls[open]>summary svg{transform:rotate(90deg)}
     </details>
   </aside>
 </div>
+<section class="wrap allsec" aria-labelledby="allH">
+  <h2 class="sec-h" id="allH">会員サイトの全レッスン</h2>
+  <p class="sec-p">会員サイトにある公開中のレッスンを、コースごとにすべて並べています（<span id="allN"></span>）。タイトルを押すとそのレッスンが新しいタブで開きます。</p>
+  <div class="allc" id="allc"></div>
+</section>
 <div class="wrap"><p class="foot" id="foot">チェックはこの端末に保存されます。※ロードマップの内容は変更する場合がございます。</p></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
 "use strict";
-/* ---------- データ（シート「ロードマップ2025.10~」102行目まで） ---------- */
+/* ---------- 会員サイト（UTAGE）の全コース・公開レッスン 2026-11-26 時点 ---------- */
+var BASE="https://member.cheersmate11.com/members/9JcHM2Gb6jwp/course/";
+var COURSES=[
+ ["tCxFumOkggpA","はじめに｜貿易",[["kMoCxKUPWShP","はじめに"],["HVKyaZFD8wk0","オリエンテーション"],["QxQTvV9C6VC5","Discordのはじめかた"],["HOR7GSBIo7Eq","Discordの使い方"],["xp2EI2390dt5","自己紹介をする(チアーズメイトグループ)"],["8dH7U9nCk7sb","自己紹介をする(OGJグループ)"],["w9vdPb3fusbh","プロフィールの設定方法"],["tr41D4Iw6aX7","学び・気づきの共有部屋"],["1Z6aGVfAoZE8","マインド講座"],["Kswqn3PWbNqs","チアーズメイトの学び方"],["SusJD9prVGWs","アンバサダープログラム"],["X6PEGP2cQotU","【コラボセミナー】3年間在宅フリーランスで安定して稼ぎ続ける現役が語る『絶対にやるべきこと』"],["EmRyML63yJlC","挑戦とシェアの重要性"],["C9etQc4ltdIf","質問力"],["nGdSxZIw8LuV","チアーズメイトの目標設定"],["uMpl4PYBa806","抹茶で売上を作るまでの流れ"],["htRbUsDr2vyp","OGJ抹茶の商材理解"],["lobnIVf4haUs","抹茶の商材理解(応用編)"],["44UHma8V3hYj","OGJ抹茶インタビュー_生産者の思い"],["2HjnZcuODkhv","貿易の基礎_貿易実務の流れ"],["tALlbSsOdG9J","輸出可能国一覧の確認方法"],["sxHlLg4b2WWw","インスタグラムを使ったアプローチ"],["INGnEaJu09IM","Customer Listの記入方法"],["Ai9kdcGh3dpY","Matcha GO！（アプリからDMが送れる仕組み）"],["GV3FPXp1euTj","抹茶Ai BOTの使用方法"],["New5N09TJDZ5","メールでのアプローチ方法"],["iR8i46uXjbZD","記録の仕方・21日間チャレンジ"],["6w4XWgZR84jQ","Instagram・Gmailの新規アカウント作成"],["dGtdO0sPTxgO","インスタグラムを使ったアプローチ_実際の画面"],["BltS80umpwYs","価格表の作成方法"],["cyPuLoSsZHgC","【送料込み】価格表の作り方"],["BMHoo5hwK2ow","価格表(canva)の編集方法"],["O8aFk0U6AvKd","質問窓口について"],["yhTpyrSThiUP","個別顧客リストの使い方"],["j80s1faL2Ayp","【最強】卸業者へのメール作成Aiツール"],["JsF5XWw9N62w","サポートへの案件共有の方法"],["zIT3inrDuvZ8","コメントの送信方法"],["flpMvzd6Gvcl","音声/ビデオ通話の参加方法"],["umOgUErBEVhu","講座日程の確認方法"]]],
+ ["RALzMf8KoFZG","はじめに｜英語",[["ZwRrZc1EF3XL","【要確認】はじめに見る動画①"],["1ci8gDqNzlTf","はじめに見る動画②"],["Mx7Z7PFne6Sy","マインド講座"],["GuiJMPmc5TQj","【英語学習の全体像】"],["3SisQefGYOPP","Discordのはじめ方"],["GuyxsmyfQa6I","Discordの使い方"],["Ea7nbh78qviT","プロフィールの設定方法"],["OLHWy7hZkeje","自己紹介をする(チアーズメイトグループ)"],["jxPqwgGmaBdB","学び・気づきの共有部屋"],["hh5kKKvdirHa","チアーズメイトの学び方"],["izXRdfNMVlD9","チアーズメイト アンバサダープログラム"],["NDiGCakbbaoW","自己紹介をする(OGJグループ)"],["yWoxkj1qHasr","コメントの送信方法"],["Gg9YBhgD5u1c","音声/ビデオ通話の参加方法"],["7t3Yz8v7wrpy","講座日程の確認方法"],["koWkmCIZBIad","挑戦とシェアの重要性"],["EtkuMU6fvmZK","質問力"],["QziEQUGQNiHc","チアーズメイトの目標設定"]]],
+ ["NlYkwLixYKWo","はじめに｜英語（2つ目のコース）",[["abVYkHG4p6k5","はじめに見る動画①"],["UqSfewfEHJKb","はじめに見る動画②"],["hACIzVcHzDnJ","【英語学習の全体像】"]]],
+ ["SYCCXvWMKwXU","貿易｜迷ったらここを確認",[["dupOUyB6UwFb","２つの質問窓口"],["glxARDSH5nsR","サンプル【手配】の流れ"],["mc0mThYvwVpB","サンプル【発送】の流れ"],["4fD0rb6dCVOy","サンプルフォーム回答後の種類・数量変更の手順"],["UJrNyhBt7HLM","決済方法について"],["VM0CFhGEfUD5","注文獲得後の流れ"],["qljlwfgIWgJf","配送の流れについて"],["xgh2xYUoYOFf","OEMについて"],["XvvRYCwzIRBM","サンプル試飲会の進め方"],["Dm2bjdlaoIDL","国内サンプル手続き"],["U6NX80CQEeya","相手の求めるものを理解するヒアリング力"],["paIIq1F0vMex","インボイスの発行方法"],["TGCXtvvbM65K","通関を通って相手に届くまで"],["I6reLiEYIEoe","輸入通関で止まる6つのケース"],["eKxqkOIZ0IoI","国際ビジネスで頻出の英語表現"],["hnJmgyiX1GNQ","Discordのはじめかた"],["TeqpsD64wm7k","Discordの使い方"],["wPv9Lnv6qJXq","プロフィールを設定する方法"],["M0zcZ8NUBOmD","自己紹介をする(チアーズメイトグループ)"],["Mg8DvrgFdavo","自己紹介をする(OGJグループ)"],["A17YtgQEntrL","サポートへの案件共有の方法"]]],
+ ["eFYqGnifUh9y","英語｜迷ったらここを確認",[["vtvJBd1CG5Lg","挑戦とシェアの重要性"],["IpQieiV6qZVH","質問力"],["x9hd2YlYvr5U","チアーズメイトの目標設定"],["j7ymBaPFCe0O","チアーズメイトの学び方"],["EF1t7rkXPbjq","Discordのはじめかた"],["9mdoUKYSVopI","Discordの使い方"],["w7deDgTO1DCI","プロフィールを設定する方法"],["26XrYppHJUyX","自己紹介をする(チアーズメイトグループ)"]]],
+ ["zCtWRKIGI2qx","コンテンツ｜貿易",[["QS1oHeOYk6tj","リサーチ①"],["8ZtMQyskGTaC","リサーチ②"],["bryGOnKkpEoT","商品選択"],["l70tEZk1158H","セールス戦略"],["wgIx2R9zGME3","商品ページ"],["7EgHg3KuC9UY","集客"],["3c5OnhX5OiLe","商談プレゼンテーション"],["4Q1RRDUDw8ck","貿易実務"]]],
+ ["GiWqSBfRuNKg","コンテンツ｜英語",[["DpI3thpcYj00","【全体像】英語学習方針"],["EH4n5Y4d5XqJ","【全体像】英語学習設計"],["ODEW9FmTVUyR","【全体像】基礎トレーニング"],["qkT3tVCpsjC8","3-1. ため息発声"],["DLW7WzSwbB7h","3-2. フォニックス"],["uZH4ZjTEru2x","3-3. フォニックス練習用"],["uwKWFSm5ZIpa","3-4. 単語トレーニング"],["n4TmixwmtyHs","3-5. 文法トレーニング"],["7gYiPY1DbEpR","【全体像】応用トレーニング"],["pHv3phqWuhmW","4-1. 感情スピーキング"],["ygNurqkoYXtn","4-2. 感情リスニング"],["pAppoW5RxKL0","新リスニング教材の案内"],["LK8qHCr1PgYt","【全体像】実践トレーニング"],["CtMuDasuyirK","英対話 STAGE ２"]]],
+ ["boc4aa99u2za","グループ講座｜貿易",[["I6levzYT6CqY","【マインド】チアーズメイト式 成果を出し続けられる人のマインド"],["V36yHhIFzwyf","【マインド】人を頼る力を身につける"],["YbZCAg6UOzhz","【マインド】成果を出す人のタイムマネジメント"],["vnL9klqYzVv7","【全体像】抹茶の売上を作るまでの流れ"],["5iDx0gP9Mwek","【全体像】先輩メンバーに学ぶ！成果を出すまでのノウハウ共有"],["CGwXR5ObuofV","【集客】集客コンセプト"],["DzMdigAKQNlh","【集客】ストーリーを使ったアプローチ方法"],["n8pWoD3jKFCa","【集客】卸業者へのアプローチ"],["83NCgybKN3Lm","【集客】新規DMの重要性"],["1cG6BGUGsL6H","【集客】返信率、フォーム入力率を上げる"],["rza1YIQnMUpb","【集客】サンプル決済率、発注率を上げる"],["Go8XVPpN4T1Q","【集客】サンプルフォーム入力率を上げる+新プロジェクト発表"],["tyhUExBETb4k","【集客】DMの返信率UPとフォーム入力をさせるアプローチ"],["lLvCX3RwTPgp","【集客】Aiを使ったリスト出し"],["pYTGaKMo3o4N","【集客】新規販路開拓のスキルを身につける"],["m8o69l72SUoL","【集客】返信率を上げるアカウント作成"],["Npzh0jNliLIH","【集客】価格表作成ワーク（AI活用）"],["Bpz5dpA0VFFV","【集客】AI活用ツール実践〜ClaudeとAquaVoiceで業務を効率化〜"],["kKLOezOHdEP3","【セールス】ストーリーで売る方法"],["KM07401NMmZh","【セールス】相手に頭を使わせないビジネススキルを身につける"],["Zn0Hddru39Ip","【セールス】英語ミーティングの基礎"],["WWD66S4jPp84","【セールス】英語ミーティングの応用"],["RR95z3iIdtDu","【セールス】英語商談から学ぶ ビジネス英語"],["OkRzCTTkFyrH","【セールス】英語商談の実践練習"],["itX9sNvJdF10","【セールス】英語商談の実践練習2"],["slbDvKs0UfTY","【セールス】見込み顧客への交渉術"],["noOarK3AlThU","【セールス】抹茶の商材理解(応用編)"],["5Df5K2hiSSSP","【セールス】商品を届ける力を身につける"],["WOnhGv3pqJ62","【セールス】問題解決能力を伸ばす"],["AfZHwZXaLux9","2026年の抹茶の展望と目標設定"],["flapcTUiwfIK","和牛プロジェクト キックオフ会"],["eDJBEiyOWhua","【コラボセミナー】ワーホリキャリア｜グローバル転職・独立のヒミツ スペシャルセミナー"],["2nXfmcVaK90W","【コラボセミナー】和牛マニア｜和牛輸出ビジネス"],["wrt21OC3M5Bq","【コラボセミナー】Ayakaさん｜3年間在宅フリーランスで安定して稼ぎ続ける現役が語る『絶対にやるべきこと』"],["fi3Qby2ebVaU","【コラボセミナー】ぴち家｜会社員からフォロワー40万人のインスタを運営するフリーランスへの道"],["qfWIYlUNn9OZ","【コラボセミナー】ワーホリキャリア｜海外人材支援事業のリアル"],["YL5K05jCeAaK","【メンバー主催】山本朋美さん｜デザインメールDMで集客実践"],["vEweMznc3msX","【メンバー主催】源太センパイ｜抹茶貿易ビジネス経験シェア"],["0U3OYyE4TX6X","【メンバー主催】成約2件獲得！源太さんの話を聞く会"]]],
+ ["3i1ZjYLOt3cY","グループ講座｜英語",[["q5WvHNkyeIdd","なりきり英会話①"],["pFfTgVY5OMGL","なりきり英会話②"],["iZG3XxSLCa85","仕事で使える英語力(英対話)"],["hTFFwMoHD0dm","英語の思考を身につける"],["GyvXP9D5mo95","英語で新年の目標設定"],["Ibe6ARE0OEff","英語が伸びている人の特徴"],["ZxCf2OQWo0sa","オーダーメイド教材を使った練習"],["BAhowS1123XQ","得意文法を身につける"],["HbCqUEtQkgpF","得意文法を身につけるトレーニング〜スクリプト外でも崩れない文型の作り方〜"],["B4RGijQVDsCg","得意文法を身につける_which is 形容詞"],["4UaPyazd4Oqu","If you could文法トレーニング〜丁寧な依頼表現〜"]]],
+ ["EQxdkpBdM4JK","連絡事項｜貿易関連",[["nT12m9VqUhvj","チアーズメイト アンバサダープログラム"],["K6Jsj9v33qv1","Studyplusの設定"],["W7a0B3RJDBJw","シャッフルクラスの参加方法(Google Meet)"],["pU6pTgDkqXdr","Upworkの登録方法"],["8UMTQ2bAokhj","【DM用】ショートカットキーの設定方法"],["f98PQIgKAygT","Instagramのプロフィールの設定方法"],["l0qpqrdkW9Cz","国内サンプル手続き"]]],
+ ["dI7b9sNX7VOQ","連絡事項｜英語関連",[["4sF0dF3zXpII","チアーズメイト アンバサダープログラム"],["qmQD7bTsvL2o","Upworkの登録方法"],["6SjdxAE2hgMX","スピーキング練習回数の報告"],["PCBmSRVcaWed","シャッフルクラスの参加方法(Google Meet)"]]],
+ ["ZYyE5w5FF9eS","日本語時事課題",[["VTrMQJWlvueX","【０】課題の取り組み方"],["f3Hb202LisEr","【１】競争はないほうがいい？"],["IOIxRtkUI2FW","【２】英語を話す３つの心得"],["gIWfdv5xE643","【３】貧富の格差の原因は？"],["t2iH4TxTD8DW","【４】読書は最大の投資"],["T1A6BNbkRwIu","【５】小1起業家。900借金して開業"],["1iEyacHCvzgc","【６】核ミサイルはどこにある？"],["p52KqqVo1UpY","【７】完璧主義者の弱点"],["mNOzeo11VMBJ","【８】外国人労働者・移民"],["zgB2UbRmWy5P","【９】20代が投票に行くべき理由"],["g9MXatp9lTjj","【10】日本の幸福度は低すぎる？"],["zz3rgUQYLDfd","【11】日本と海外の教育の違い"],["9Fn4d7ROzokS","【12】ネットで買物。環境に優しい？"],["Q1ud8w2DAema","【13】知っておきたい海外の常識"],["wLbCq2UyGKb2","【14】高校で資産形成の授業開始"],["C0oNAc31BxgL","【15】失敗しても人と違ってもいい"],["l706Hpmy8cCW","【16】本当の学びは机の上にはない"],["RVyI5KvfzANu","【17】自分のアタマで考えよう"],["qYgl48JWEE22","【18】世界の結婚観の違い"],["OAjU6fa4V4Rc","【19】やりたいことの見つけ方"],["XEt9K9OfO5DV","【20】“日本の慣習”残すべき？"],["bzIuehHOW9I2","【21】なぜボランティアするの？"],["BQ619OKqynTP","【22】この髪どうしてダメですか？"],["aeXvBOcLIVjG","【23】What is Ohanami?"],["cZaj3KpwUkbf","【24】なぜ性別によって学校が分けられているの？"]]],
+ ["JUrCiqXQGUs6","マイルハック開業サポート",[["BL5WlvAu4wsQ","PART1_マイルハックの仕組み"],["Ggla9yOHj0uK","PART2_使う前に知っておくこと"],["k8VWnvKQxN98","PART3_始める前の準備①"],["oJf5WywZvtrO","PART4_始める前の準備②"],["JTAAQusw95nC","PART5_お金の流れと消費税"],["sOZvPJB91jDc","PART6_消費税の還付"],["hP2vYDqzS7xQ","PART7_マイルで行ける場所"]]]
+];
+/* レッスンID → [コースID, レッスン名] */
+var LES={};
+COURSES.forEach(function(c){c[2].forEach(function(l){LES[l[0]]=[c[0],l[1]]})});
+function url(id){var x=LES[id];return x?BASE+x[0]+"/lesson/"+id:""}
+/* ---------- ロードマップ（シート「ロードマップ2025.10~」102行目まで＋会員サイトの新レッスン） ----------
+   レッスンは [レッスンID, 動画の長さ, 新規] 。名前とリンクは COURSES から引く。
+   新規=1 は 2026-11 に会員サイトへ追加されたレッスン（旧チェックの引き継ぎで数えない）。 */
 var T="貿易",E="英語",C="共通";
 var STAGES=[
  {id:"s1",phase:"スタート準備",title:"はじめに",type:T,badge:"事前準備OK",out:"スタートダッシュが切れます。Discordに入り、自己紹介と学び方の確認まで済んだ状態です。",
-  groups:[{l:[["はじめに",""],["オリエンテーション","0:23:47"],["Discordのはじめかた","0:03:22"],["Discordの使い方","0:07:12"],["自己紹介をする(チアーズメイトグループ)","0:06:20"],["自己紹介をする(OGJグループ)","0:02:17"],["プロフィールの設定方法","0:00:55"],["学び・気づきの共有部屋",""],["マインド講座","0:20:46"],["チアーズメイトの学び方","0:06:07"],["アンバサダープログラム",""],["【コラボセミナー】3年間在宅フリーランスで安定して稼ぎ続ける現役が語る『絶対にやるべきこと』","1:06:26"]]}]},
+  groups:[{l:[["kMoCxKUPWShP",""],["HVKyaZFD8wk0","0:23:47"],["QxQTvV9C6VC5","0:03:22"],["HOR7GSBIo7Eq","0:07:12"],["xp2EI2390dt5","0:06:20"],["8dH7U9nCk7sb","0:02:17"],["w9vdPb3fusbh","0:00:55"],["tr41D4Iw6aX7",""],["1Z6aGVfAoZE8","0:20:46"],["Kswqn3PWbNqs","0:06:07"],["SusJD9prVGWs",""],["X6PEGP2cQotU","1:06:26"]]}]},
  {id:"s2",title:"マインドセットと目標設定",type:T,badge:"目標にピンが立った",out:"どこを目指すかが決まりました。ここからは行動あるのみです。",
-  groups:[{l:[["挑戦とシェアの重要性","0:02:22"],["質問力","0:14:27"],["チアーズメイトの目標設定","0:06:07"]]}]},
+  groups:[{l:[["EmRyML63yJlC","0:02:22"],["C9etQc4ltdIf","0:14:27"],["nGdSxZIw8LuV","0:06:07"]]}]},
  {id:"s3",title:"抹茶の商材理解",type:T,badge:"届けるものが明確に",out:"相手に何を届けるのかがはっきりしました。抹茶の魅力と売上までの流れを、自分の言葉で話せます。",
-  groups:[{l:[["抹茶で売上を作るまでの流れ","1:08:36"],["OGJ抹茶の商材理解","0:21:46"],["抹茶の商材理解(応用編)","0:44:36"],["貿易の基礎_貿易実務の流れ","0:18:49"]]}]},
+  groups:[{l:[["uMpl4PYBa806","1:08:36"],["htRbUsDr2vyp","0:21:46"],["lobnIVf4haUs","0:44:36"],["44UHma8V3hYj","",1],["2HjnZcuODkhv","0:18:49"]]}]},
  {id:"s4",title:"新規アプローチ",type:T,badge:"アプローチ開始OK",out:"実際にアプローチができます。Instagramとメールで、海外のお客さまに声をかけ始められます。",
-  groups:[{l:[["輸出可能国一覧の確認方法",""],["インスタグラムを使ったアプローチ","0:08:34"],["Customer Listの記入方法",""],["抹茶Ai BOTの使用方法","0:01:35"],["メールでのアプローチ方法","0:05:26"],["記録の仕方・21日間チャレンジ","0:11:18"],["Instagram・Gmailの新規アカウント作成","0:06:13"],["インスタグラムを使ったアプローチ_実際の画面","0:04:50"]]}]},
+  groups:[{l:[["tALlbSsOdG9J",""],["sxHlLg4b2WWw","0:08:34"],["INGnEaJu09IM",""],["Ai9kdcGh3dpY","",1],["GV3FPXp1euTj","0:01:35"],["New5N09TJDZ5","0:05:26"],["iR8i46uXjbZD","0:11:18"],["6w4XWgZR84jQ","0:06:13"],["dGtdO0sPTxgO","0:04:50"]]}]},
  {id:"s5",title:"ツールの使い方・記入方法",type:T,badge:"道具がそろった",out:"顧客リスト・価格表・メール作成AIを使いこなせます。やり取りを止めずに進められます。",
-  groups:[{l:[["質問窓口について",""],["個別顧客リストの使い方","0:03:04"],["価格表の編集方法","0:09:14"],["【最強】卸業者へのメール作成Aiツール","0:05:52"]]}]},
+  groups:[{l:[["O8aFk0U6AvKd",""],["yhTpyrSThiUP","0:03:04"],["BltS80umpwYs","",1],["cyPuLoSsZHgC","",1],["BMHoo5hwK2ow","0:09:14"],["j80s1faL2Ayp","0:05:52"]]}]},
  {id:"s6",title:"Discord",type:T,badge:"ひとりで抱えない",out:"案件をサポートに共有でき、講座にも参加できます。困ったらすぐ頼れる状態です。",
-  groups:[{l:[["サポートへの案件共有の方法","0:04:51"],["コメントの送信方法",""],["音声/ビデオ通話の参加方法","0:04:03"],["講座日程の確認方法",""]]}]},
+  groups:[{l:[["JsF5XWw9N62w","0:04:51"],["zIT3inrDuvZ8",""],["flpMvzd6Gvcl","0:04:03"],["umOgUErBEVhu",""]]}]},
  {id:"s7",title:"はじめに（英語プラン）",type:E,badge:"英語学習の地図を手にした",out:"英語をどう学んでいくのか、全体像が見えました。次の英語コンテンツに迷わず入れます。",
-  groups:[{l:[["【要確認】はじめに見る動画①","0:08:42"],["はじめに見る動画②","0:04:39"],["【英語学習の全体像】","0:24:44"]]}]},
+  groups:[{l:[["ZwRrZc1EF3XL","0:08:42"],["1ci8gDqNzlTf","0:04:39"],["GuiJMPmc5TQj","0:24:44"]]}]},
  {id:"s8",phase:"英語コンテンツ",title:"英語コンテンツ",type:E,badge:"英語で伝えられる",out:"発音・単語・文法の土台から英対話の実践まで。商談で、自分の言葉で話す準備ができました。",
-  groups:[{n:"STEP1 学習方針",l:[["【全体像】英語学習方針","0:04:53"]]},{n:"STEP2 学習設計",l:[["【全体像】英語学習設計","0:09:38"]]},
-   {n:"STEP3 基礎トレーニング",l:[["【全体像】基礎トレーニング","0:07:26"],["3-1. ため息発声","0:15:07"],["3-2. フォニックス","0:16:09"],["3-3. フォニックス練習用","0:15:20"],["3-4. 単語トレーニング","0:16:59"],["3-5. 文法トレーニング","0:11:54"]]},
-   {n:"STEP4 応用トレーニング",l:[["【全体像】応用トレーニング","0:04:22"],["4-1. 感情スピーキング","0:20:52"],["4-2. 感情リスニング","0:12:10"],["新リスニング教材の案内","0:04:31"]]},
-   {n:"STEP5 実践トレーニング",l:[["【全体像】実践トレーニング","0:10:03"],["英対話 STAGE ２","0:26:14"]]}]},
+  groups:[{n:"STEP1 学習方針",l:[["DpI3thpcYj00","0:04:53"]]},{n:"STEP2 学習設計",l:[["EH4n5Y4d5XqJ","0:09:38"]]},
+   {n:"STEP3 基礎トレーニング",l:[["ODEW9FmTVUyR","0:07:26"],["qkT3tVCpsjC8","0:15:07"],["DLW7WzSwbB7h","0:16:09"],["uZH4ZjTEru2x","0:15:20"],["uwKWFSm5ZIpa","0:16:59"],["n4TmixwmtyHs","0:11:54"]]},
+   {n:"STEP4 応用トレーニング",l:[["7gYiPY1DbEpR","0:04:22"],["pHv3phqWuhmW","0:20:52"],["ygNurqkoYXtn","0:12:10"],["pAppoW5RxKL0","0:04:31"]]},
+   {n:"STEP5 実践トレーニング",l:[["LK8qHCr1PgYt","0:10:03"],["CtMuDasuyirK","0:26:14"]]}]},
  {id:"s9",phase:"貿易の7ステップ",title:"貿易の7ステップ",type:T,badge:"ひとりで貿易ができる",out:"市場調査から商談、貿易実務まで。売るまでの流れを、自分の力で回せます。",
-  groups:[{n:"STEP1 売上の8割を決める市場調査の方法",l:[["リサーチ①","0:09:32"],["リサーチ②","0:12:56"]]},{n:"STEP2 海外に売れる商品の選択のポイント",l:[["商品選択","0:18:13"]]},{n:"STEP3 海外で「売れる」セールス戦略",l:[["セールス戦略","0:14:09"]]},{n:"STEP4 英語の文章で売る！商品販売ページの作り方",l:[["商品ページ","0:16:52"]]},{n:"STEP5 見込み顧客を集める集客方法",l:[["集客","0:15:23"]]},{n:"STEP6 日本の商品の魅力をプレゼンするZoom商談の仕方",l:[["商談プレゼンテーション","0:26:04"]]},{n:"STEP7 ひとりで貿易ができるようになる貿易実務の方法",l:[["貿易実務","0:16:51"]]}]},
+  groups:[{n:"STEP1 売上の8割を決める市場調査の方法",l:[["QS1oHeOYk6tj","0:09:32"],["8ZtMQyskGTaC","0:12:56"]]},{n:"STEP2 海外に売れる商品の選択のポイント",l:[["bryGOnKkpEoT","0:18:13"]]},{n:"STEP3 海外で「売れる」セールス戦略",l:[["l70tEZk1158H","0:14:09"]]},{n:"STEP4 英語の文章で売る！商品販売ページの作り方",l:[["wgIx2R9zGME3","0:16:52"]]},{n:"STEP5 見込み顧客を集める集客方法",l:[["7EgHg3KuC9UY","0:15:23"]]},{n:"STEP6 日本の商品の魅力をプレゼンするZoom商談の仕方",l:[["3c5OnhX5OiLe","0:26:04"]]},{n:"STEP7 ひとりで貿易ができるようになる貿易実務の方法",l:[["4Q1RRDUDw8ck","0:16:51"]]}]},
  {id:"s10",phase:"マイルハック開業サポート",title:"マイルハック開業サポート",type:C,badge:"開業して、マイルで世界へ",out:"マイルハックの仕組み、始める準備、お金の流れと消費税の還付まで理解できました。開業に踏み出せます。",
-  groups:[{l:[["PART1_マイルハックの仕組み","0:03:23"],["PART2_使う前に知っておくこと","0:02:47"],["PART3_始める前の準備①","0:02:58"],["PART4_始める前の準備②","0:02:23"],["PART5_お金の流れと消費税","0:03:21"],["PART6_消費税の還付","0:01:57"],["PART7_マイルで行ける場所","0:02:59"]]}]}
+  groups:[{l:[["BL5WlvAu4wsQ","0:03:23"],["Ggla9yOHj0uK","0:02:47"],["k8VWnvKQxN98","0:02:58"],["oJf5WywZvtrO","0:02:23"],["JTAAQusw95nC","0:03:21"],["sOZvPJB91jDc","0:01:57"],["hP2vYDqzS7xQ","0:02:59"]]}]}
 ];
+/* 迷ったらここ：困りごと別に並べ替え（会員サイトの「貿易｜迷ったらここを確認」15本＋Discord6本、英語側8本）。
+   「よく使うツール」はロードマップ内のレッスンへの近道。 */
 var HELP=[
- {n:"貿易｜手続き関連",l:[["２つの質問窓口",""],["サンプル【手配】の流れ","0:05:21"],["サンプル【発送】の流れ","0:08:30"],["サンプルフォーム回答後の種類・数量変更の手順",""],["決済方法について",""],["注文獲得後の流れ",""],["配送の流れについて",""],["OEMについて",""],["サンプル試飲会の進め方",""],["国内サンプル手続き",""],["相手の求めるものを理解するヒアリング力",""],["インボイスの発行方法",""]]},
- {n:"貿易｜Discord",l:[["Discordのはじめかた","0:03:22"],["Discordの使い方","0:07:12"],["プロフィールを設定する方法","0:00:55"],["自己紹介をする(チアーズメイトグループ)","0:07:19"],["自己紹介をする(OGJグループ)","0:02:21"],["サポートへの案件共有の方法","0:04:51"]]},
- {n:"英語｜事前準備とマインドセット",l:[["挑戦とシェアの重要性","0:02:56"],["質問力","0:14:27"],["チアーズメイトの目標設定","0:07:08"],["チアーズメイトの学び方","0:06:21"]]},
- {n:"英語｜Discord",l:[["Discordのはじめかた","0:03:46"],["Discordの使い方","0:07:56"],["プロフィールを設定する方法","0:00:55"],["自己紹介をする(チアーズメイトグループ)","0:07:19"]]}
+ {n:"まず相談したいとき",t:T,l:[["dupOUyB6UwFb",""],["A17YtgQEntrL","0:04:51"]]},
+ {n:"サンプルを送る",t:T,l:[["glxARDSH5nsR","0:05:21"],["mc0mThYvwVpB","0:08:30"],["4fD0rb6dCVOy",""],["Dm2bjdlaoIDL",""],["XvvRYCwzIRBM",""]]},
+ {n:"注文が入ったら（決済・配送・通関）",t:T,l:[["VM0CFhGEfUD5",""],["UJrNyhBt7HLM",""],["paIIq1F0vMex",""],["qljlwfgIWgJf",""],["TGCXtvvbM65K",""],["I6reLiEYIEoe",""]]},
+ {n:"商談・提案のヒント",t:T,l:[["U6NX80CQEeya",""],["xgh2xYUoYOFf",""],["eKxqkOIZ0IoI",""]]},
+ {n:"よく使うツール・資料",t:T,l:[["tALlbSsOdG9J",""],["BltS80umpwYs",""],["cyPuLoSsZHgC",""],["BMHoo5hwK2ow","0:09:14"],["INGnEaJu09IM",""],["yhTpyrSThiUP","0:03:04"],["j80s1faL2Ayp","0:05:52"],["GV3FPXp1euTj","0:01:35"]]},
+ {n:"Discord（貿易）",t:T,l:[["hnJmgyiX1GNQ","0:03:22"],["TeqpsD64wm7k","0:07:12"],["wPv9Lnv6qJXq","0:00:55"],["M0zcZ8NUBOmD","0:07:19"],["Mg8DvrgFdavo","0:02:21"]]},
+ {n:"事前準備とマインドセット（英語）",t:E,l:[["vtvJBd1CG5Lg","0:02:56"],["IpQieiV6qZVH","0:14:27"],["x9hd2YlYvr5U","0:07:08"],["j7ymBaPFCe0O","0:06:21"]]},
+ {n:"Discord（英語）",t:E,l:[["EF1t7rkXPbjq","0:03:46"],["9mdoUKYSVopI","0:07:56"],["w7deDgTO1DCI","0:00:55"],["26XrYppHJUyX","0:07:19"]]}
 ];
 
 /* ---------- 状態 ---------- */
 var KEY="cm-roadmap-v1", state={done:{},plan:"both"}, ref=null, saveT=null, saving=false, dirty=false;
-try{var raw=JSON.parse(localStorage.getItem(KEY)||"null");if(raw){(raw.done||[]).forEach(function(k){state.done[k]=1});if(raw.plan==="trade")state.plan="trade"}}catch(e){}
+/* 旧形式のチェック（"s4-0-2" のような並び順キー）を、レッスンIDのキーに引き継ぐ */
+var LEGACY={};
+STAGES.forEach(function(st){st.groups.forEach(function(g,gi){var li=0;g.l.forEach(function(x){if(!x[2])LEGACY[st.id+"-"+gi+"-"+(li++)]="L:"+x[0]})})});
+function loadDone(arr){state.done={};(Array.isArray(arr)?arr:[]).forEach(function(k){if(typeof k!=="string")return;if(LEGACY[k])k=LEGACY[k];state.done[k]=1})}
+try{var raw=JSON.parse(localStorage.getItem(KEY)||"null");if(raw){loadDone(raw.done);if(raw.plan==="trade")state.plan="trade"}}catch(e){}
 function snapshot(){return {done:Object.keys(state.done),plan:state.plan}}
 function persist(){
   try{localStorage.setItem(KEY,JSON.stringify(snapshot()))}catch(e){}
@@ -322,11 +380,13 @@ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&am
 function secs(d){if(!d)return 0;var p=d.split(":");return (+p[0])*3600+(+p[1])*60+(+p[2])}
 function short(d){if(!d)return "";var s=secs(d),m=Math.max(1,Math.round(s/60));return m>=60?Math.floor(m/60)+"時間"+(m%60?(m%60)+"分":""):m+"分"}
 function total(st){var s=0;st.groups.forEach(function(g){g.l.forEach(function(x){s+=secs(x[1])})});var m=Math.round(s/60);return m>=60?"約"+Math.floor(m/60)+"時間"+(m%60?(m%60)+"分":""):"約"+m+"分"}
-function keys(st){var a=[];st.groups.forEach(function(g,gi){g.l.forEach(function(x,li){a.push(st.id+"-"+gi+"-"+li)})});return a}
+function keys(st){var a=[];st.groups.forEach(function(g){g.l.forEach(function(x){a.push("L:"+x[0])})});return a}
 function active(st){return !(st.type===E&&state.plan==="trade")}
 var CHK='<svg class="i" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
 var ARW='<svg class="i" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>';
 var PIN='<svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.500C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg>';
+var EXT='<svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+function lnk(id,cls){var u=url(id);return '<a class="'+cls+'" href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(LES[id][1])+'</a>'}
 var FLG='<svg class="i" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/></svg>';
 
 /* ---------- 描く（1回だけ） ---------- */
@@ -344,7 +404,7 @@ function build(){
     st.groups.forEach(function(g){
       if(g.n)h+='<p class="grp">'+esc(g.n)+'</p>';
       h+='<ul class="les">';
-      g.l.forEach(function(x){var k=ks[ki++];h+='<li><label><input type="checkbox" id="c-'+k+'" data-k="'+k+'"><span class="ti">'+esc(x[0])+'</span><span class="du">'+short(x[1])+'</span></label></li>'});
+      g.l.forEach(function(x){var k=ks[ki++];h+='<li><input type="checkbox" id="c-'+k+'" data-k="'+k+'" aria-label="'+esc(LES[x[0]][1])+'を完了にする">'+lnk(x[0],"ti")+(x[2]?'<span class="new">NEW</span>':'')+'<span class="du">'+short(x[1])+'</span>'+EXT+'</li>'});
       h+='</ul>';
     });
     h+='<button type="button" class="all" data-all="'+st.id+'"></button></details></article></li>';
@@ -353,11 +413,19 @@ function build(){
   $("road").innerHTML=h; $("route").innerHTML=r;
   var s="";
   HELP.forEach(function(g){
-    s+='<details><summary>'+ARW+esc(g.n)+'<span class="c">'+g.l.length+'</span></summary><ul>';
-    g.l.forEach(function(x){s+='<li><span>'+esc(x[0])+'</span><span>'+short(x[1])+'</span></li>'});
+    s+='<details><summary>'+ARW+esc(g.n)+(g.t===E?'<span class="chip eng">英語</span>':'')+'<span class="c">'+g.l.length+'</span></summary><ul>';
+    g.l.forEach(function(x){s+='<li>'+lnk(x[0],"hl")+'<span>'+short(x[1])+'</span></li>'});
     s+='</ul></details>';
   });
   $("help").innerHTML=s;
+  var a="",n=0;
+  COURSES.forEach(function(c){
+    n+=c[2].length;
+    a+='<details class="crs"><summary>'+ARW+'<span>'+esc(c[1])+'</span><span class="c num">'+c[2].length+'</span></summary><ol>';
+    c[2].forEach(function(l){a+='<li>'+lnk(l[0],"hl")+EXT+'</li>'});
+    a+='</ol><a class="top-l" href="'+BASE+c[0]+'" target="_blank" rel="noopener">コースのページを開く'+ARW+'</a></details>';
+  });
+  $("allc").innerHTML=a; $("allN").textContent=COURSES.length+"コース・"+n+"レッスン";
 }
 
 /* ---------- 状態を画面に当てる ---------- */
@@ -418,7 +486,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
     var id=await user.id(); if(!id)return;
     var r=db.collection("data/users/"+id).doc("roadmap"),snap=await r.get();
     if(snap.exists){
-      var d=snap.data()||{};state.done={};(Array.isArray(d.done)?d.done:[]).forEach(function(k){if(typeof k==="string")state.done[k]=1});state.plan=d.plan==="trade"?"trade":"both";
+      var d=snap.data()||{};loadDone(d.done);state.plan=d.plan==="trade"?"trade":"both";
       try{localStorage.setItem(KEY,JSON.stringify(snapshot()))}catch(e){}
       first=true;apply();ref=r;
     }else{ await r.set(snapshot()); ref=r; }
